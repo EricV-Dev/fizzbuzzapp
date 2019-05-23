@@ -13,35 +13,67 @@ export class RunappComponent implements OnInit {
 
   ngOnInit() {}
 
-  fizzBuzz() {
-    let x = [];
-    for (let i = 1; i <= 36; i++) {
-      let retVal = "";
-      let notDivBy3 = false;
-      let notDivBy5 = false;
+  fizzBuzz(i) {
+    let retVal = "";
+    let notDivBy3 = false;
+    let notDivBy5 = false;
 
-      if (i % 3 == 0) {
-        retVal += "Fizz";
-        notDivBy3 = true;
-        x.push(retVal);
-      }
-
-      if (i % 5 == 0) {
-        retVal += " Buzz";
-        retVal = retVal.trim();
-        notDivBy5 = true;
-        x.push(retVal);
-      }
-
-      if (notDivBy3 == false && notDivBy5 == false) {
-        x.push(i);
-      }
+    if (i % 3 == 0) {
+      retVal += "Fizz";
+      notDivBy3 = true;
     }
-    return x;
+
+    if (i % 5 == 0) {
+      retVal += " Buzz";
+      retVal = retVal.trim();
+      notDivBy5 = true;
+    }
+
+    if (notDivBy3 == false && notDivBy5 == false) {
+      return i;
+    }
+    return retVal;
   }
 
   outputFizzBuzz() {
-    this.fizzResult = this.fizzBuzz();
-    // this.item = this.fizzBuzz();
+    let x = [];
+    for (let i = 1; i <= 36; i++) {
+      var resArray = this.fizzBuzz(i);
+      x.push(resArray);
+      this.fizzResult = x;
+    }
   }
 }
+
+//   fizzBuzz() {
+//     let x = [];
+//     for (let i = 1; i <= 14; i++) {
+//       let retVal = "";
+//       let notDivBy3 = false;
+//       let notDivBy5 = false;
+
+//       if (i % 3 == 0) {
+//         retVal += "Fizz";
+//         notDivBy3 = true;
+//         x.push(retVal);
+//       }
+
+//       if (i % 5 == 0) {
+//         retVal += " Buzz";
+//         retVal = retVal.trim();
+//         notDivBy5 = true;
+//         x.push(retVal);
+//       }
+
+//       if (notDivBy3 == false && notDivBy5 == false) {
+//         x.push(i);
+//       }
+//     }
+//     return x;
+//   }
+
+//   outputFizzBuzz() {
+//     this.fizzResult = this.fizzBuzz();
+//     console.log(this.fizzResult);
+//   }
+//
