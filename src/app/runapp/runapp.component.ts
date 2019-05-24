@@ -15,6 +15,7 @@ export class RunappComponent implements OnInit {
 
   fizzBuzz(i) {
     let retVal = "";
+
     let notDivBy3 = false;
     let notDivBy5 = false;
 
@@ -30,7 +31,7 @@ export class RunappComponent implements OnInit {
     }
 
     if (notDivBy3 == false && notDivBy5 == false) {
-      return i;
+      return String(i);
     }
     return retVal;
   }
@@ -40,6 +41,7 @@ export class RunappComponent implements OnInit {
     for (let i = 1; i <= 36; i++) {
       var resArray = this.fizzBuzz(i);
       x.push(resArray);
+
       this.fizzResult = x;
     }
   }

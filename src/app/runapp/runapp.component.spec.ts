@@ -30,6 +30,6 @@ describe("RunappComponent", () => {
     console.log(output);
     console.log(component.fizzResult);
 
-    expect(component.fizzResult).toBe(output);
+    expect(component.fizzResult).toEqual(output);
   });
 });
