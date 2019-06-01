@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { DataService } from "../data.service";
 
 @Component({
   selector: "app-runapp",
@@ -7,9 +8,14 @@ import { Component, OnInit } from "@angular/core";
 })
 export class RunappComponent implements OnInit {
   fizzResult;
+
+  apiData = [];
+
+  fizzData: Object;
+
   item = [];
 
-  constructor() {}
+  constructor(private data: DataService) {}
 
   ngOnInit() {}
 
@@ -44,5 +50,12 @@ export class RunappComponent implements OnInit {
 
       this.fizzResult = x;
     }
+  }
+
+  fizzBuzzApi() {
+    this.data.getFizzBuzz().subscribe(data => {
+      this.fizzData = data;
+      console.log(this.data);
+    });
   }
 }
