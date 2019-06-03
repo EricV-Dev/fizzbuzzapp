@@ -5,4 +5,9 @@ div {
 button {
   height: 35px;
   font-size: 25px;
+  color: firebrick;
+}
+
+#button2 {
+  margin-left: 75%;
 }

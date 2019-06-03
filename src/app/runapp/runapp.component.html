@@ -1,6 +1,6 @@
 <body>
-  <button (click)="outputFizzBuzz(36)">Test angular logic</button>
-  <button (click)="fizzBuzzApi()">Test API logic</button>
+  <button id="button1" (click)="outputFizzBuzz(36)">Test angular logic</button>
+  <button id="button2" (click)="fizzBuzzApi()">Test API logic</button>
 
   <div *ngFor="let apiData of fizzData">{{ apiData }}</div>
 
