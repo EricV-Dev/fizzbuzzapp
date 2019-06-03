@@ -42,8 +42,7 @@ export class RunappComponent implements OnInit {
     return retVal;
   }
 
-  outputFizzBuzz() {
-    const fizzLoop = 36;
+  outputFizzBuzz(fizzLoop) {
     let x = [];
     for (let i = 1; i <= fizzLoop; i++) {
       var resArray = this.fizzBuzz(i);
