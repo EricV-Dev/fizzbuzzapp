@@ -32,7 +32,7 @@ describe("DataService", () => {
       expect(datas.length).toBe(2);
       expect(datas).toEqual(dummyData);
     });
-    const request = httpMock.expectOne(`${service.ROOT_URL}/datas`);
+    const request = httpMock.expectOne(`${service.ROOT_URL}`);
     expect(request.request.method).toBe("GET");
     request.flush(dummyData);
   });

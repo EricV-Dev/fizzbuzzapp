@@ -7,9 +7,10 @@ import { Data } from "src/models/data.model";
 })
 export class DataService {
   ROOT_URL = "http://localhost:3000/api/fizzBuzz";
+
   constructor(private http: HttpClient) {}
 
   getFizzBuzz() {
-    return this.http.get<Data[]>(`${this.ROOT_URL}/datas`);
+    return this.http.get<Data[]>(`${this.ROOT_URL}`);
   }
 }

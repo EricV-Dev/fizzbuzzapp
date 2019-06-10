@@ -1,8 +1,18 @@
 <body>
-  <button id="button1" (click)="outputFizzBuzz(36)">Test angular logic</button>
-  <button id="button2" (click)="fizzBuzzApi()">Test API logic</button>
+  <div>
+    <div>
+      <input
+        type="number"
+        (keyup)="fizzField($event)"
+        placeholder="Type Number i.e. 36"
+      />
+      <button type="button" (click)="buttonClick()"></button>
+    </div>
 
-  <div *ngFor="let apiData of fizzData">{{ apiData }}</div>
-
-  <div *ngFor="let item of fizzResult">{{ item }}</div>
+    <div style="display:block" *ngFor="let apiData of fizzData">
+      {{ apiData.num }}
+      :
+      {{ apiData.result }}
+    </div>
+  </div>
 </body>

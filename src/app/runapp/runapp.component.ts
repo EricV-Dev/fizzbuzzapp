@@ -13,49 +13,33 @@ export class RunappComponent implements OnInit {
 
   fizzData: Object;
 
-  item = [];
+  fizzInput: String;
 
   constructor(private data: DataService) {}
 
   ngOnInit() {}
 
-  fizzBuzz(i) {
-    let retVal = "";
+  fizzField($event) {
+    this.fizzInput = "?num=" + $event.target.value;
 
-    let notDivBy3 = false;
-    let notDivBy5 = false;
-
-    if (i % 3 == 0) {
-      retVal += "Fizz";
-      notDivBy3 = true;
-    }
-
-    if (i % 5 == 0) {
-      retVal += " Buzz";
-      retVal = retVal.trim();
-      notDivBy5 = true;
-    }
-
-    if (notDivBy3 == false && notDivBy5 == false) {
-      return String(i);
-    }
-    return retVal;
+    history.pushState(null, null, "/runapp" + this.fizzInput);
   }
 
-  outputFizzBuzz(fizzLoop) {
-    let x = [];
-    for (let i = 1; i <= fizzLoop; i++) {
-      var resArray = this.fizzBuzz(i);
-      x.push(resArray);
+  buttonClick() {
+    this.data.ROOT_URL = this.data.ROOT_URL + this.fizzInput;
 
-      this.fizzResult = x;
-    }
-  }
-
-  fizzBuzzApi() {
-    this.data.getFizzBuzz().subscribe(data => {
-      this.fizzData = data;
-      console.log(this.data);
-    });
+    this.data.getFizzBuzz().subscribe(
+      data => {
+        this.data.ROOT_URL = "http://localhost:3000/api/fizzBuzz";
+        return (this.fizzData = data);
+      },
+      (error: Response) => {
+        if (error.status === 404) {
+          alert("Please Enter Value");
+          window.location.reload();
+        } else
+          alert("There was a problem with the request, please try again later");
+      }
+    );
   }
 }
