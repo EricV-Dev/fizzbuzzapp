@@ -1,0 +1,30 @@
+<body>
+  <form class="form-signin">
+    <input
+      (keyup)="userField($event)"
+      type="user"
+      class="form-control"
+      id="username"
+      aria-describedby="userHelp"
+      placeholder="Enter Username"
+    />
+    <div class="form-group">
+      <small id="userHelpt" class="form-text text-muted"
+        >We'll never share your information with anyone else.</small
+      >
+    </div>
+    <div class="form-group">
+      <input
+        (keyup)="passField($event)"
+        type="password"
+        class="form-control"
+        id="password"
+        placeholder="Password"
+      />
+    </div>
+
+    <button type="button" (click)="userLogin(user)" class="btn btn-primary">
+      Submit
+    </button>
+  </form>
+</body>

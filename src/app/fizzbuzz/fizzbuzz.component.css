@@ -1,0 +1,16 @@
+body {
+  text-align: center;
+}
+
+button {
+  width: 200px;
+  height: 40px;
+  text-align: inherit;
+}
+
+ul {
+  margin-left: 45.8%;
+  width: 100%;
+  max-width: 140px;
+  vertical-align: middle;
+}

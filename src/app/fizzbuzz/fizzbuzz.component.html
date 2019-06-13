@@ -1,0 +1,24 @@
+<body>
+  <h4>Calculate Some Numbers!</h4>
+  <div>
+    <div>
+      <input
+        type="number"
+        (keyup)="fizzField($event)"
+        placeholder="Type Number i.e. 36"
+      />
+    </div>
+    <button
+      type="button"
+      class="btn btn-primary"
+      data-toggle="button"
+      (click)="buttonClick()"
+    >
+      Calculate
+    </button>
+
+    <ul class="list-group" *ngFor="let apiData of fizzData">
+      <li class="list-group-item">{{ apiData.num }} : {{ apiData.result }}</li>
+    </ul>
+  </div>
+</body>
