@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { EventEmitterService } from "../event-emitter.service";
+import { AuthService } from "../services/auth.service";
 
 @Component({
   selector: "app-nav",
@@ -9,11 +10,11 @@ import { EventEmitterService } from "../event-emitter.service";
 export class NavComponent implements OnInit {
   myApp: string = "Fizz Buzz App";
 
-  constructor(private eventEmitterService: EventEmitterService) {}
+  constructor(private auth: AuthService) {}
 
   ngOnInit() {}
 
-  firstComponentFunction() {
-    this.eventEmitterService.onFirstComponentButtonClick();
+  logout() {
+    this.auth.logout();
   }
 }

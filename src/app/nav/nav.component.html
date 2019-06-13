@@ -1,11 +1,13 @@
 <header>
   <div class="container">
-    <a routerLink="/" class="logo">{{ myApp }}</a>
-    <nav>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
       <ul>
         <li><a routerLink="/">Home</a></li>
         <li>
           <a routerLink="/runapp">RunApp</a>
+        </li>
+        <li>
+          <a routerLink (click)="logout()">Log Out</a>
         </li>
       </ul>
     </nav>
