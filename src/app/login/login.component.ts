@@ -33,7 +33,6 @@ export class LoginComponent implements OnInit {
     this.fizzPass = password;
 
     this.fizzUserPass = { user: this.fizzUser, password: this.fizzPass };
-    console.log(this.fizzUserPass);
   }
 
   userLogin() {
