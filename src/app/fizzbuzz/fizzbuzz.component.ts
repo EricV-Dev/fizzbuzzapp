@@ -25,7 +25,7 @@ export class RunappComponent implements OnInit {
     history.pushState(null, null, "/runapp" + this.fizzInput);
   }
 
-  buttonClick() {
+  fizzClick() {
     this.data.ROOT_URL = this.data.ROOT_URL + this.fizzInput;
 
     this.data.getFizzBuzz().subscribe(
@@ -41,5 +41,10 @@ export class RunappComponent implements OnInit {
           alert("There was a problem with the request, please try again later");
       }
     );
+  }
+
+  fizzClear() {
+    history.replaceState(null, null, "/runapp" + "?");
+    window.location.reload();
   }
 }

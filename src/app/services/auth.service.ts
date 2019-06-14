@@ -24,7 +24,6 @@ export class AuthService {
   }
 
   logout() {
-    console.log("loggedout");
     localStorage.removeItem("LoggedInUser");
     this.myRoute.navigate(["login"]);
   }
