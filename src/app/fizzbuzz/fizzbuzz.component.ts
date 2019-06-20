@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { DataService } from "../services/fizzbuzz.service";
+import { HttpErrorResponse } from "@angular/common/http";
+import { FormControl } from "@angular/forms";
 
 @Component({
   selector: "app-runapp",
@@ -7,11 +9,15 @@ import { DataService } from "../services/fizzbuzz.service";
   styleUrls: ["./fizzbuzz.component.css"]
 })
 export class RunappComponent implements OnInit {
+  field = new FormControl("");
+
   fizzResult;
 
   apiData = [];
 
   fizzData: Object;
+
+  fizzDataDefault: Object;
 
   fizzInput: String;
 
@@ -26,25 +32,30 @@ export class RunappComponent implements OnInit {
   }
 
   fizzClick() {
-    this.data.ROOT_URL = this.data.ROOT_URL + this.fizzInput;
+    if (this.fizzInput === undefined) {
+      this.fizzInput = "?num=0";
+    }
+    this.data.ROOT_URL += this.fizzInput;
 
     this.data.getFizzBuzz().subscribe(
       data => {
-        this.data.ROOT_URL = "http://localhost:3000/api/fizzBuzz";
+        this.data.ROOT_URL = this.data.ROOT_URL.split("?")[0];
+        this.fizzInput = "?num=0";
         return (this.fizzData = data);
       },
-      (error: Response) => {
+      (error: HttpErrorResponse) => {
         if (error.status === 404) {
-          alert("Please Enter Value");
-          window.location.reload();
+          // we will do something here with interceptors
         } else
           alert("There was a problem with the request, please try again later");
       }
     );
+    this.data.ROOT_URL = this.data.ROOT_URL;
   }
 
   fizzClear() {
     history.replaceState(null, null, "/runapp" + "?");
-    window.location.reload();
+    this.field.reset();
+    this.fizzData = [];
   }
 }

@@ -11,6 +11,7 @@ import { DataService } from "./services/fizzbuzz.service";
 import { LoginComponent } from "./login/login.component";
 import { AuthService } from "./services/auth.service";
 import { AuthGuard } from "./services/auth-guard.service";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,13 @@ import { AuthGuard } from "./services/auth-guard.service";
     HomeComponent,
     LoginComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
   providers: [DataService, AuthService, AuthGuard],
 
   bootstrap: [AppComponent]

@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { AuthService } from "../services/auth.service";
 import { Router } from "@angular/router";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 
 @Component({
   selector: "app-login",
@@ -14,6 +15,7 @@ export class LoginComponent implements OnInit {
   fizzUserPass;
   user: [];
   LOGIN_URL = "http://localhost:3000/api/login";
+
   constructor(
     private router: Router,
     private http: HttpClient,
@@ -38,19 +40,21 @@ export class LoginComponent implements OnInit {
   userLogin() {
     this.http
       .post(`${this.LOGIN_URL}`, this.fizzUserPass, {
-        headers: new HttpHeaders({
-          "Content-Type": "application/json"
-        })
+        observe: "response"
       })
-      .subscribe(response => {
-        console.log(Object.values(response));
-        if (Object.values(response).includes("Access Granted")) {
+
+      .subscribe(
+        response => {
+          response.status === 200;
+          console.log("200 success");
           this.auth.sendToken("token active");
           this.router.navigate(["/"]);
-        } else {
-          alert("Invalid Username or Password");
-          window.location.reload();
+        },
+        (error: HttpErrorResponse) => {
+          if (error.status === 401) {
+            alert("401 error");
+          }
         }
-      });
+      );
   }
 }
