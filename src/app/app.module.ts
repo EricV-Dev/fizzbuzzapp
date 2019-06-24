@@ -7,7 +7,7 @@ import { AppComponent } from "./app.component";
 import { NavComponent } from "./nav/nav.component";
 import { RunappComponent } from "./fizzbuzz/fizzbuzz.component";
 import { HomeComponent } from "./home/home.component";
-import { DataService } from "./services/fizzbuzz.service";
+import { FizzBuzzResult } from "./services/fizzbuzz.service";
 import { LoginComponent } from "./login/login.component";
 import { AuthService } from "./services/auth.service";
 import { AuthGuard } from "./services/auth-guard.service";
@@ -28,7 +28,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [DataService, AuthService, AuthGuard],
+  providers: [FizzBuzzResult, AuthService, AuthGuard],
 
   bootstrap: [AppComponent]
 })

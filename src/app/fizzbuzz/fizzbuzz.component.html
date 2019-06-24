@@ -1,36 +1,44 @@
-<h4>Calculate Some Numbers!</h4>
-<body>
-  <form>
-    <div>
-      <div>
-        <input
-          type="number"
-          [formControl]="field"
-          (keyup)="fizzField($event)"
-          placeholder="Type Number i.e. 36"
-        />
+<div>
+  <h4>Calculate Some Numbers!</h4>
+  <body>
+    <div class="container">
+      <div class="row">
+        <form class="col-5">
+          <div id="inputForm">
+            <input
+              id="inputField"
+              type="number"
+              [formControl]="field"
+              (keyup)="fizzField($event)"
+              placeholder="Type Number i.e. 36"
+            />
+          </div>
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-toggle="button"
+            (click)="fizzClick()"
+          >
+            Calculate
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger"
+            data-toggle="button"
+            (click)="fizzClear()"
+          >
+            Clear
+          </button>
+        </form>
+
+        <div class="col-2">
+          <ul *ngFor="let apiData of fizzData">
+            <li class="list-group-item">
+              {{ apiData.num }} : {{ apiData.result }}
+            </li>
+          </ul>
+        </div>
       </div>
-      <button
-        type="button"
-        class="btn btn-primary"
-        data-toggle="button"
-        (click)="fizzClick()"
-      >
-        Calculate
-      </button>
-      <button
-        type="button"
-        class="btn btn-danger"
-        data-toggle="button"
-        (click)="fizzClear()"
-      >
-        Clear
-      </button>
-      <ul class="list-group" *ngFor="let apiData of fizzData">
-        <li class="list-group-item">
-          {{ apiData.num }} : {{ apiData.result }}
-        </li>
-      </ul>
     </div>
-  </form>
-</body>
+  </body>
+</div>

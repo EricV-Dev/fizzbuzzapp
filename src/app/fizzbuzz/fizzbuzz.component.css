@@ -1,16 +1,27 @@
-body {
-  text-align: center;
-}
-
 button {
   width: 200px;
   height: 40px;
   text-align: inherit;
 }
 
-ul {
-  margin-left: 45.8%;
-  width: 100%;
-  max-width: 140px;
-  vertical-align: middle;
+h4 {
+  text-align: center;
+}
+
+.container {
+  margin-left: 25%;
+  text-align: center;
+  padding-top: 150px;
+}
+
+#inputField {
+  text-align: center;
+}
+
+#inputForm {
+  text-align: center;
+}
+
+.col-2 {
+  text-align: center;
 }

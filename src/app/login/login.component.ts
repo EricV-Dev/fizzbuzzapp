@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { AuthService } from "../services/auth.service";
 import { Router } from "@angular/router";
+import { FormControl } from "@angular/forms";
 
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 
@@ -10,11 +11,11 @@ import { HttpClient, HttpErrorResponse } from "@angular/common/http";
   styleUrls: ["./login.component.css"]
 })
 export class LoginComponent implements OnInit {
+  passInput = new FormControl("");
   fizzUser;
   fizzPass;
   fizzUserPass;
   user: [];
-  LOGIN_URL = "http://localhost:3000/api/login";
 
   constructor(
     private router: Router,
@@ -39,7 +40,7 @@ export class LoginComponent implements OnInit {
 
   userLogin() {
     this.http
-      .post(`${this.LOGIN_URL}`, this.fizzUserPass, {
+      .post(`${this.auth.LOGIN_URL}`, this.fizzUserPass, {
         observe: "response"
       })
 
@@ -52,7 +53,9 @@ export class LoginComponent implements OnInit {
         },
         (error: HttpErrorResponse) => {
           if (error.status === 401) {
-            alert("401 error");
+            this.passInput.reset();
+
+            alert("Username or Password incorrect");
           }
         }
       );

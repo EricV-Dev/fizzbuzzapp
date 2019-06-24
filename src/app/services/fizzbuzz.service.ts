@@ -5,7 +5,7 @@ import { Data } from "src/models/data.model";
 @Injectable({
   providedIn: "root"
 })
-export class DataService {
+export class FizzBuzzResult {
   ROOT_URL = "http://localhost:3000/api/fizzBuzz";
 
   constructor(private http: HttpClient) {}

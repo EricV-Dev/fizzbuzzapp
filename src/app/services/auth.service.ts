@@ -7,6 +7,7 @@ import { Router } from "@angular/router";
 })
 export class AuthService {
   constructor(private myRoute: Router) {}
+  LOGIN_URL = "http://localhost:3000/api/login";
 
   sendToken(token: string) {
     localStorage.setItem("LoggedInUser", token);

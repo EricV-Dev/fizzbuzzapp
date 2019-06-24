@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { DataService } from "../services/fizzbuzz.service";
+import { FizzBuzzResult } from "../services/fizzbuzz.service";
 import { HttpErrorResponse } from "@angular/common/http";
 import { FormControl } from "@angular/forms";
 
@@ -21,7 +21,9 @@ export class RunappComponent implements OnInit {
 
   fizzInput: String;
 
-  constructor(private data: DataService) {}
+  fizzDefault = "?num=0";
+
+  constructor(private fizzBuzzResult: FizzBuzzResult) {}
 
   ngOnInit() {}
 
@@ -33,14 +35,16 @@ export class RunappComponent implements OnInit {
 
   fizzClick() {
     if (this.fizzInput === undefined) {
-      this.fizzInput = "?num=0";
+      this.fizzInput = this.fizzDefault;
     }
-    this.data.ROOT_URL += this.fizzInput;
+    this.fizzBuzzResult.ROOT_URL += this.fizzInput;
 
-    this.data.getFizzBuzz().subscribe(
+    this.fizzBuzzResult.getFizzBuzz().subscribe(
       data => {
-        this.data.ROOT_URL = this.data.ROOT_URL.split("?")[0];
-        this.fizzInput = "?num=0";
+        this.fizzBuzzResult.ROOT_URL = this.fizzBuzzResult.ROOT_URL.split(
+          "?"
+        )[0];
+        this.fizzInput = this.fizzDefault;
         return (this.fizzData = data);
       },
       (error: HttpErrorResponse) => {
@@ -50,7 +54,7 @@ export class RunappComponent implements OnInit {
           alert("There was a problem with the request, please try again later");
       }
     );
-    this.data.ROOT_URL = this.data.ROOT_URL;
+    this.fizzBuzzResult.ROOT_URL = this.fizzBuzzResult.ROOT_URL;
   }
 
   fizzClear() {
