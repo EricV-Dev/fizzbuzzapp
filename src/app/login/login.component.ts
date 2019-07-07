@@ -46,16 +46,12 @@ export class LoginComponent implements OnInit {
 
       .subscribe(
         response => {
-          response.status === 200;
-          console.log("200 success");
           this.auth.sendToken("token active");
           this.router.navigate(["/"]);
         },
         (error: HttpErrorResponse) => {
           if (error.status === 401) {
             this.passInput.reset();
-
-            alert("Username or Password incorrect");
           }
         }
       );

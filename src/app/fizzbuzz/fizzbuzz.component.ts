@@ -39,21 +39,11 @@ export class RunappComponent implements OnInit {
     }
     this.fizzBuzzResult.ROOT_URL += this.fizzInput;
 
-    this.fizzBuzzResult.getFizzBuzz().subscribe(
-      data => {
-        this.fizzBuzzResult.ROOT_URL = this.fizzBuzzResult.ROOT_URL.split(
-          "?"
-        )[0];
-        this.fizzInput = this.fizzDefault;
-        return (this.fizzData = data);
-      },
-      (error: HttpErrorResponse) => {
-        if (error.status === 404) {
-          // we will do something here with interceptors
-        } else
-          alert("There was a problem with the request, please try again later");
-      }
-    );
+    this.fizzBuzzResult.getFizzBuzz().subscribe(data => {
+      this.fizzBuzzResult.ROOT_URL = this.fizzBuzzResult.ROOT_URL.split("?")[0];
+      this.fizzInput = this.fizzDefault;
+      return (this.fizzData = data);
+    });
     this.fizzBuzzResult.ROOT_URL = this.fizzBuzzResult.ROOT_URL;
   }
 
