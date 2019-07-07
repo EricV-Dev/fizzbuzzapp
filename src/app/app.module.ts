@@ -33,7 +33,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     ReactiveFormsModule,
     CommonModule,
     BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot() // ToastrModule added
+    ToastrModule.forRoot({ positionClass: "toast-top-center" }) // ToastrModule added
   ],
   providers: [
     FizzBuzzResult,
