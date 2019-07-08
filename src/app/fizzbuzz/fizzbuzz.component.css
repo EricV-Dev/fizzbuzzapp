@@ -23,5 +23,8 @@ h4 {
 }
 
 .col-2 {
-  text-align: center;
+}
+
+#dataList {
+  display: inline-flex;
 }
