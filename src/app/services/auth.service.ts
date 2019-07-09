@@ -7,7 +7,7 @@ import { Router } from "@angular/router";
 })
 export class AuthService {
   constructor(private myRoute: Router) {}
-  LOGIN_URL = "http://localhost:3000/api/login";
+  LOGIN_URL = "https://still-river-42657.herokuapp.com/api/login";
 
   sendToken(token: string) {
     localStorage.setItem("LoggedInUser", token);
