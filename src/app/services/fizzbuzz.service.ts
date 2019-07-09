@@ -6,7 +6,7 @@ import { Data } from "src/models/data.model";
   providedIn: "root"
 })
 export class FizzBuzzResult {
-  ROOT_URL = "http://localhost:3000/api/fizzBuzz";
+  ROOT_URL = "https://still-river-42657.herokuapp.com/api/fizzBuzz";
 
   constructor(private http: HttpClient) {}
 
