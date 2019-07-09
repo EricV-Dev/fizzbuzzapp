@@ -9,7 +9,9 @@ app.use(express.static("./dist/{{fizzBuzzApp}}"));
 // });
 
 app.get("/*", function(req, res) {
-  res.sendFile(path.join(__dirname, "/dist/{{fizzBuzzApp}}/index.html"));
+  res.sendFile(
+    path.join(__dirname, "/dist/{{fizzBuzzApp}}/app.component.html")
+  );
 });
 
 app.listen(process.env.PORT || 8080);
