@@ -1,13 +1,14 @@
 import { Injectable } from "@angular/core";
 
 import { Router } from "@angular/router";
+import { environment } from "src/environments/environment";
 
 @Injectable({
   providedIn: "root"
 })
 export class AuthService {
   constructor(private myRoute: Router) {}
-  LOGIN_URL = "https://still-river-42657.herokuapp.com/api/login";
+  LOGIN_URL = environment.loginURL;
 
   sendToken(token: string) {
     localStorage.setItem("LoggedInUser", token);
