@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { AuthService } from "../services/auth.service";
 import { Router } from "@angular/router";
-import { FormControl } from "@angular/forms";
 
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 
