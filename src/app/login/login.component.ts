@@ -11,10 +11,8 @@ import { HttpClient, HttpErrorResponse } from "@angular/common/http";
   styleUrls: ["./login.component.css"]
 })
 export class LoginComponent implements OnInit {
-  passInput = new FormControl("");
   fizzUser;
   fizzPass;
-  fizzUserPass;
   user: [];
 
   constructor(
@@ -25,22 +23,11 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {}
 
-  userField($event) {
-    let user = $event.target.value;
-
-    this.fizzUser = user;
-  }
-
-  passField($event) {
-    let password = $event.target.value;
-    this.fizzPass = password;
-
-    this.fizzUserPass = { user: this.fizzUser, password: this.fizzPass };
-  }
-
   userLogin() {
+    let fizzUserPass = { user: this.fizzUser, password: this.fizzPass };
+
     this.http
-      .post(`${this.auth.LOGIN_URL}`, this.fizzUserPass, {
+      .post(`${this.auth.LOGIN_URL}`, fizzUserPass, {
         observe: "response"
       })
 
@@ -51,7 +38,7 @@ export class LoginComponent implements OnInit {
         },
         (error: HttpErrorResponse) => {
           if (error.status === 401) {
-            this.passInput.reset();
+            this.fizzPass = "";
           }
         }
       );
