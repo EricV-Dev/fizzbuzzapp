@@ -5,12 +5,15 @@ import { RunappComponent } from "./fizzbuzz/fizzbuzz.component";
 import { AppComponent } from "./app.component";
 import { LoginComponent } from "./login/login.component";
 import { AuthGuard } from "./services/auth-guard.service";
+import { AdminComponent } from "./admin/admin.component";
+import { RoleGuard } from "./services/role-guard.service";
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "", component: AppComponent },
   { path: "login", component: LoginComponent },
-  { path: "runapp", component: RunappComponent, canActivate: [AuthGuard] }
+  { path: "runapp", component: RunappComponent, canActivate: [AuthGuard] },
+  { path: "admin", component: AdminComponent, canActivate: [RoleGuard] }
 ];
 
 @NgModule({

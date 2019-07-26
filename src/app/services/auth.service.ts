@@ -15,6 +15,11 @@ export class AuthService {
     return true;
   }
 
+  sendAdminToken(token: string) {
+    localStorage.setItem("LoggedInAdmin", token);
+    return true;
+  }
+
   getToken() {
     return localStorage.getItem("LoggedInUser");
   }
@@ -25,8 +30,14 @@ export class AuthService {
     }
   }
 
+  isLoggedInAdmin() {
+    if (Object.values(localStorage).includes("admin token active")) {
+      return true;
+    }
+  }
+
   logout() {
-    localStorage.removeItem("LoggedInUser");
+    localStorage.clear();
     this.myRoute.navigate(["login"]);
   }
 }
