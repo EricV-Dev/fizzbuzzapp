@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { FizzBuzzResult } from "../services/fizzbuzz.service";
-import { HttpErrorResponse } from "@angular/common/http";
 import { FormControl } from "@angular/forms";
 
 @Component({
