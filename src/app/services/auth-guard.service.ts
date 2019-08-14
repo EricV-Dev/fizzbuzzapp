@@ -9,11 +9,7 @@ import { ToastrService } from "ngx-toastr";
   providedIn: "root"
 })
 export class AuthGuard implements CanActivate {
-  constructor(
-    private toastr: ToastrService,
-    private auth: AuthService,
-    private router: Router
-  ) {}
+  constructor(private auth: AuthService, private router: Router) {}
 
   canActivate() {
     if (this.auth.isLoggedIn()) return true;

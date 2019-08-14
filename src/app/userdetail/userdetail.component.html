@@ -1,0 +1,66 @@
+<form>
+  <div id="usertable">
+    <table>
+      <div id="dataList" class="list-group-item">
+        <div class="input-group mb-3">
+          Username
+          <input
+            [(ngModel)]="userNameForm"
+            name="user"
+            type="text"
+            class="form-control"
+            placeholder="Recipient's username"
+            aria-label="Recipient's username"
+            aria-describedby="button-addon2"
+            value="{{ userData?.user }}"
+          />
+        </div>
+        <div class="input-group mb-3">
+          Password
+          <input
+            [(ngModel)]="userNamePassword"
+            name="password"
+            type="text"
+            class="form-control"
+            placeholder="Recipient's password"
+            aria-label="Recipient's password"
+            aria-describedby="button-addon2"
+            value="{{ userData?.password }}"
+          />
+        </div>
+        <div>
+          <div class="input-group mb-3">
+            Updated Password
+            <input
+              [(ngModel)]="updatedPassword"
+              name="updatedPassword"
+              type="text"
+              placeholder="New Password / Passwords Must Match"
+              aria-label="Recipient's password"
+              aria-describedby="button-addon2"
+            />
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          Admin
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Recipient's admin"
+            aria-label="Recipient's admin"
+            aria-describedby="button-addon2"
+            value="{{ userData?.admin }}"
+          />
+        </div>
+      </div>
+    </table>
+    <button
+      class="btn btn-outline-secondary"
+      type="submit"
+      id="button-addon2"
+      (click)="updateUser()"
+    >
+      Update
+    </button>
+  </div>
+</form>

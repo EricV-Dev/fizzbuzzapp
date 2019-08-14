@@ -1,8 +1,11 @@
-form {
-  width: 100%;
-  max-width: 420px;
-  display: block;
+h3 {
   text-align: center;
-  padding: 25px;
+  padding-top: 5%;
+}
+
+.form-group {
+  max-width: 420px;
+  text-align: center;
   margin: auto;
+  padding-top: 5%;
 }

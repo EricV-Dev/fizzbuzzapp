@@ -1,22 +1,15 @@
 <div>
   <body>
-    <button
-      type="button"
-      id="adminButton"
-      class="btn btn-primary"
-      data-toggle="button"
-      (click)="adminData()"
-    >
-      clicky
-    </button>
-
-    <div class="col-2">
-      <table *ngFor="let users of userData | keyvalue">
-        <div id="dataList" class="list-group-item">
-          Username: {{ users.value.user }} <br />
-          Password: {{ users.value.password }} Admin: {{ users.value.admin }}
-        </div>
-      </table>
+    <div class="grid grid-pad">
+      <li *ngFor="let users of userData | keyvalue; index as i" class="col-1-4">
+        <a routerLink="/userdetail/{{ i }}">
+          <div class="module users">
+            <h4>Username: {{ users.value.user }}</h4>
+            <h4>Password: {{ users.value.password }}</h4>
+            <h4>Admin: {{ users.value.admin }}</h4>
+          </div>
+        </a>
+      </li>
     </div>
   </body>
 </div>

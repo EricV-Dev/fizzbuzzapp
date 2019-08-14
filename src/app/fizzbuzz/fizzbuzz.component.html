@@ -30,13 +30,17 @@
             Clear
           </button>
         </form>
-
-        <div class="col-2">
-          <ul *ngFor="let apiData of fizzData">
-            <div id="dataList" class="list-group-item">
-              {{ apiData.num }} : {{ apiData.result }}
-            </div>
-          </ul>
+      </div>
+      <div>
+        <div id="datarow" class="row">
+          <div
+            class="col-xs-10 list-group-item "
+            *ngFor="let apiData of fizzData"
+          >
+            {{ apiData.num }}
+            :
+            {{ apiData.result }}
+          </div>
         </div>
       </div>
     </div>

@@ -6,6 +6,7 @@ import { environment } from "src/environments/environment";
   providedIn: "root"
 })
 export class AdminService {
+  openPass = false;
   ROOT_URL = environment.adminURL;
 
   constructor(private http: HttpClient) {}

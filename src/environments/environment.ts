@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   fizzURL: "http://localhost:3000/api/fizzBuzz",
   loginURL: "http://localhost:3000/api/login",
-  adminURL: "http://localhost:3000/api/admin"
+  adminURL: "http://localhost:3000/api/updateUsername"
 };
 
 /*

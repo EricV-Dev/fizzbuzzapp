@@ -7,16 +7,18 @@ import { AdminService } from "../services/admin.service";
   styleUrls: ["./admin.component.css"]
 })
 export class AdminComponent implements OnInit {
+  openform;
   users: any;
   userData: Object;
 
   constructor(private adminService: AdminService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.adminData();
+  }
 
   adminData() {
     this.adminService.getAdminData().subscribe(data => {
-      console.log(data);
       return (this.userData = data);
     });
   }

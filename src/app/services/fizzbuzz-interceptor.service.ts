@@ -3,7 +3,8 @@ import {
   HttpInterceptor,
   HttpRequest,
   HttpHandler,
-  HttpResponse
+  HttpResponse,
+  HttpErrorResponse
 } from "@angular/common/http";
 import { tap } from "rxjs/operators";
 import { ToastrService } from "ngx-toastr";
@@ -19,7 +20,11 @@ export class FizzbuzzInterceptorService implements HttpInterceptor {
 
     return next.handle(req).pipe(
       tap(
-        event => (ok = event instanceof HttpResponse ? "succeeded" : ""),
+        event => (
+          (ok = event instanceof HttpResponse ? "succeeded" : event),
+          console.log(ok)
+        ),
+
         // Operation failed; error is an HttpErrorResponse
         error =>
           (ok = this.toastr.error("An Error Has Occured", "Oops! Error!", {

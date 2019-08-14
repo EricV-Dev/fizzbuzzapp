@@ -1,12 +1,17 @@
 <html>
-  <div>
-    <header>
-      <div>
-        <h1>Welcome to FizzBuzz App!</h1>
-      </div>
-      <h2>
-        <a routerLink="/runapp">Click Here To Run Fizz Buzz</a>
-      </h2>
-    </header>
-  </div>
+  <body class="jumbotron">
+    <h1 class="display-4">Welcome to FizzBuzz App!</h1>
+    <p class="lead">
+      This is a simple app to show you how not to be a good developer
+    </p>
+    <hr class="my-4" />
+
+    <a class="btn btn-primary" routerLink="/runapp"
+      >Click Here To Login and Run Fizz Buzz</a
+    >
+
+    <button>
+      <a (click)="test()">test</a>
+    </button>
+  </body>
 </html>

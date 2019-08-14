@@ -36,11 +36,11 @@ export class RunappComponent implements OnInit {
     if (this.fizzInput === undefined) {
       this.fizzInput = this.fizzDefault;
     }
+
     this.fizzBuzzResult.ROOT_URL += this.fizzInput;
 
     this.fizzBuzzResult.getFizzBuzz().subscribe(data => {
       this.fizzBuzzResult.ROOT_URL = this.fizzBuzzResult.ROOT_URL.split("?")[0];
-      this.fizzInput = this.fizzDefault;
       return (this.fizzData = data);
     });
     this.fizzBuzzResult.ROOT_URL = this.fizzBuzzResult.ROOT_URL;
@@ -50,5 +50,6 @@ export class RunappComponent implements OnInit {
     history.replaceState(null, null, "/runapp" + "?");
     this.field.reset();
     this.fizzData = [];
+    this.fizzInput = this.fizzDefault;
   }
 }

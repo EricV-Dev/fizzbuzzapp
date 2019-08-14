@@ -1,32 +1,16 @@
-header {
-  background: red;
-  height: 50px;
-}
-
-body {
-  background: blue;
-}
-
-.logo {
-  font-weight: bold;
-  color: white;
-  font-size: 45px;
-}
-
-ul {
-  margin: 0;
-  padding: 0;
-}
-
 nav {
-  background: red;
   display: inline-block;
+}
+
+a {
+  padding-right: 25px;
+  float: left;
+  font-size: 20px;
+}
+#loginlink {
   float: right;
 }
 
-nav li {
-  list-style-type: none;
-  padding: 10px;
-  display: inline;
-  font-size: 20px;
+#adminlink {
+  float: right;
 }

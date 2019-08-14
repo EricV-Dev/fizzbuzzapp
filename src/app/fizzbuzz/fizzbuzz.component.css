@@ -9,7 +9,7 @@ h4 {
 }
 
 .container {
-  margin-left: 25%;
+  margin-left: 35%;
   text-align: center;
   padding-top: 150px;
 }
@@ -22,9 +22,7 @@ h4 {
   text-align: center;
 }
 
-.col-2 {
-}
-
-#dataList {
-  display: inline-flex;
+#datarow {
+  justify-content: center;
+  margin-right: 57%;
 }

@@ -2,13 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { AuthService } from "../services/auth.service";
 import { Router } from "@angular/router";
 
-import {
-  HttpClient,
-  HttpErrorResponse,
-  HttpResponse
-} from "@angular/common/http";
-import { AngularWaitBarrier } from "blocking-proxy/built/lib/angular_wait_barrier";
-import { AdminComponent } from "../admin/admin.component";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 
 @Component({
   selector: "app-login",

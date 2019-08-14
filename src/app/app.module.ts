@@ -17,6 +17,7 @@ import { ToastrModule } from "ngx-toastr";
 import { CommonModule } from "@angular/common";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AdminComponent } from './admin/admin.component';
+import { UserdetailComponent } from './userdetail/userdetail.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AdminComponent } from './admin/admin.component';
     RunappComponent,
     HomeComponent,
     LoginComponent,
-    AdminComponent
+    AdminComponent,
+    UserdetailComponent
   ],
   imports: [
     BrowserModule,

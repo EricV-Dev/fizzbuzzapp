@@ -1,18 +1,25 @@
 <header>
   <div class="container">
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <ul>
-        <li><a routerLink="/">Home</a></li>
-        <li>
-          <a routerLink="/runapp">RunApp</a>
-        </li>
-        <li>
-          <a routerLink (click)="logout()">Log Out</a>
-        </li>
-        <li>
-          <a routerLink="/admin">Admin</a>
-        </li>
-      </ul>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a routerLink="/">Home</a>
+
+      <a routerLink="/runapp">Fizz Buzz App</a>
+
+      <a id="loginlink" [hidden]="onLoginShowLogout()" routerLink="/runapp"
+        >Login</a
+      >
+
+      <a
+        id="adminlink"
+        [hidden]="!onLoginShowLogout()"
+        routerLink
+        (click)="logout()"
+        >Log Out</a
+      >
+
+      <a id="adminlink" [hidden]="!onClickShowAdmin()" routerLink="/admin"
+        >Manage Users</a
+      >
     </nav>
   </div>
 </header>
