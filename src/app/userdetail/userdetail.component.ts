@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { AdminService } from "../services/admin.service";
 import { HttpClient } from "@angular/common/http";
-import { environment } from "src/environments/environment";
 
 @Component({
   selector: "app-userdetail",
@@ -49,14 +48,6 @@ export class UserdetailComponent implements OnInit {
     });
   }
 
-  // adminClick() {
-  //   if (this.ogAdmin === true) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // }
-
   updateUser() {
     if (this.ogUser != this.userNameForm) {
       this.ogUser = this.userNameForm;
@@ -84,7 +75,7 @@ export class UserdetailComponent implements OnInit {
     };
     this.http
       //change to env variable
-      .post(environment.adminURL, this.updatedUser, {
+      .post(this.adminService.ROOT_URL, this.updatedUser, {
         observe: "response"
       })
 

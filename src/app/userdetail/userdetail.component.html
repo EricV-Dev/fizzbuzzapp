@@ -43,14 +43,12 @@
         </div>
         <div class="input-group mb-3">
           Admin
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Recipient's admin"
-            aria-label="Recipient's admin"
-            aria-describedby="button-addon2"
-            value="{{ userData?.admin }}"
-          />
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" [(ngModel)]="ogAdmin" name="ogAdmin" />
+              {{ ogAdmin }}
+            </label>
+          </div>
         </div>
       </div>
     </table>
@@ -64,3 +62,12 @@
     </button>
   </div>
 </form>
+
+<!-- <input
+type="text"
+class="form-control"
+placeholder="Recipient's admin"
+aria-label="Recipient's admin"
+aria-describedby="button-addon2"
+value="{{ userData?.admin }}"
+/> -->
