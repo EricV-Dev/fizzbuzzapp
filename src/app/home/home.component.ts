@@ -11,9 +11,4 @@ export class HomeComponent implements OnInit {
   constructor(private auth: AuthService) {}
 
   ngOnInit() {}
-
-  test() {
-    this.auth.sendToken("token active");
-    this.auth.sendAdminToken("admin token active");
-  }
 }
