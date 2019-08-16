@@ -1,3 +1,15 @@
-#usertable {
+form {
   padding-top: 10%;
+  margin-left: 35%;
+}
+
+#button-addon2 {
+  width: 15%;
+  color: black;
+}
+
+#button-addon3 {
+  margin-left: 2%;
+  width: 15%;
+  color: black;
 }

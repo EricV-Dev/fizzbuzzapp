@@ -51,13 +51,21 @@
         </div>
       </div>
     </table>
-    <button
-      class="btn btn-outline-secondary"
-      type="submit"
-      id="button-addon2"
-      (click)="updateUser()"
-    >
-      Update
-    </button>
   </div>
+  <button
+    class="btn btn-outline-primary"
+    type="submit"
+    id="button-addon2"
+    (click)="updateUser()"
+  >
+    Update
+  </button>
+  <button
+    class="btn btn-outline-danger"
+    type="button"
+    id="button-addon3"
+    routerLink="/admin"
+  >
+    Go Back
+  </button>
 </form>
