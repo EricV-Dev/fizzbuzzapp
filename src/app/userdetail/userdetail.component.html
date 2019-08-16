@@ -20,12 +20,11 @@
           <input
             [(ngModel)]="userNamePassword"
             name="password"
-            type="text"
+            type="password"
             class="form-control"
-            placeholder="Recipient's password"
+            placeholder="User New Password"
             aria-label="Recipient's password"
             aria-describedby="button-addon2"
-            value="{{ userData?.password }}"
           />
         </div>
         <div>
@@ -34,8 +33,8 @@
             <input
               [(ngModel)]="updatedPassword"
               name="updatedPassword"
-              type="text"
-              placeholder="New Password / Passwords Must Match"
+              type="password"
+              placeholder="Passwords Must Match"
               aria-label="Recipient's password"
               aria-describedby="button-addon2"
             />
@@ -62,12 +61,3 @@
     </button>
   </div>
 </form>
-
-<!-- <input
-type="text"
-class="form-control"
-placeholder="Recipient's admin"
-aria-label="Recipient's admin"
-aria-describedby="button-addon2"
-value="{{ userData?.admin }}"
-/> -->
