@@ -20,10 +20,7 @@ export class FizzbuzzInterceptorService implements HttpInterceptor {
 
     return next.handle(req).pipe(
       tap(
-        event => (
-          (ok = event instanceof HttpResponse ? "succeeded" : event),
-          console.log(ok)
-        ),
+        event => (ok = event instanceof HttpResponse ? "succeeded" : event),
 
         // Operation failed; error is an HttpErrorResponse
         error =>

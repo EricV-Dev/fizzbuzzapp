@@ -8,6 +8,7 @@ import { environment } from "src/environments/environment";
 export class AdminService {
   openPass = false;
   ROOT_URL = environment.adminURL;
+  DELETE_ROOT_URL = environment.deleteURL;
 
   constructor(private http: HttpClient) {}
 

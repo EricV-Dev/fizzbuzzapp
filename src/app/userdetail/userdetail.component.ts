@@ -1,6 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { AdminService } from "../services/admin.service";
+
 import { HttpClient } from "@angular/common/http";
+
+import { MatDialog } from "@angular/material";
+import { ModalComponent } from "../modal/modal.component";
 
 @Component({
   selector: "app-userdetail",
@@ -8,6 +12,8 @@ import { HttpClient } from "@angular/common/http";
   styleUrls: ["./userdetail.component.css"]
 })
 export class UserdetailComponent implements OnInit {
+  responseUser;
+
   users;
   userData;
   userNameForm;
@@ -22,10 +28,14 @@ export class UserdetailComponent implements OnInit {
   ogUser: string;
   ogPassword: string;
   ogAdmin: boolean;
-  switchStatus: boolean;
+  delete = false;
 
   openPass: boolean;
-  constructor(private adminService: AdminService, private http: HttpClient) {}
+  constructor(
+    private dialog: MatDialog,
+    private adminService: AdminService,
+    private http: HttpClient
+  ) {}
 
   ngOnInit() {
     this.adminData();
@@ -74,11 +84,38 @@ export class UserdetailComponent implements OnInit {
       passChanged: this.passChanged
     };
     this.http
-      //change to env variable
+
       .post(this.adminService.ROOT_URL, this.updatedUser, {
         observe: "response"
       })
 
+      .subscribe(response => this.updatedUser);
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(ModalComponent, {
+      width: "250px",
+      data: { response: this.responseUser }
+    });
+
+    dialogRef.beforeClose().subscribe(result => {
+      this.responseUser = result;
+      if (this.responseUser === "Delete") {
+        this.deleteUser();
+      }
+    });
+  }
+
+  deleteUser() {
+    this.delete = true;
+    this.updatedUser = {
+      index: this.id,
+      delete: this.delete
+    };
+    this.http
+      .post(this.adminService.DELETE_ROOT_URL, this.updatedUser, {
+        observe: "response"
+      })
       .subscribe(response => this.updatedUser);
   }
 }

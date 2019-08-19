@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Delete User?</h1>
+<div mat-dialog-content>
+  <p>Type Delete to permanently delete this user!</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.response" autocomplete="off" />
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data.response" cdkFocusInitial>
+    Ok
+  </button>
+</div>

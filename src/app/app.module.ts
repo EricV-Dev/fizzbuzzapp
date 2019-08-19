@@ -16,8 +16,11 @@ import { FizzbuzzInterceptorService } from "./services/fizzbuzz-interceptor.serv
 import { ToastrModule } from "ngx-toastr";
 import { CommonModule } from "@angular/common";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { AdminComponent } from './admin/admin.component';
-import { UserdetailComponent } from './userdetail/userdetail.component';
+import { AdminComponent } from "./admin/admin.component";
+import { UserdetailComponent } from "./userdetail/userdetail.component";
+import { MatDialogModule } from "@angular/material";
+import { MaterialModule } from "./material.module";
+import { ModalComponent } from "./modal/modal.component";
 
 @NgModule({
   declarations: [
@@ -27,7 +30,8 @@ import { UserdetailComponent } from './userdetail/userdetail.component';
     HomeComponent,
     LoginComponent,
     AdminComponent,
-    UserdetailComponent
+    UserdetailComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +41,9 @@ import { UserdetailComponent } from './userdetail/userdetail.component';
     ReactiveFormsModule,
     CommonModule,
     BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot({ positionClass: "toast-top-center" }) // ToastrModule added
+    ToastrModule.forRoot({ positionClass: "toast-top-center" }),
+    MatDialogModule,
+    MaterialModule
   ],
   providers: [
     FizzBuzzResult,
@@ -50,6 +56,7 @@ import { UserdetailComponent } from './userdetail/userdetail.component';
     }
   ],
 
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ModalComponent]
 })
 export class AppModule {}
