@@ -9,6 +9,7 @@ export class AdminService {
   openPass = false;
   ROOT_URL = environment.adminURL;
   DELETE_ROOT_URL = environment.deleteURL;
+  CREATE_USER_URL = environment.createUser;
 
   constructor(private http: HttpClient) {}
 

@@ -21,6 +21,7 @@ import { UserdetailComponent } from "./userdetail/userdetail.component";
 import { MatDialogModule } from "@angular/material";
 import { MaterialModule } from "./material.module";
 import { ModalComponent } from "./modal/modal.component";
+import { CreateUserComponent } from './create-user/create-user.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ModalComponent } from "./modal/modal.component";
     LoginComponent,
     AdminComponent,
     UserdetailComponent,
-    ModalComponent
+    ModalComponent,
+    CreateUserComponent
   ],
   imports: [
     BrowserModule,

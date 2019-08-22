@@ -7,7 +7,8 @@ export const environment = {
   fizzURL: "http://localhost:3000/api/fizzBuzz",
   loginURL: "http://localhost:3000/api/login",
   adminURL: "http://localhost:3000/api/updateUsername",
-  deleteURL: "http://localhost:3000/api/deleteUser"
+  deleteURL: "http://localhost:3000/api/deleteUser",
+  createUser: "http://localhost:3000/api/createUser"
 };
 
 /*
