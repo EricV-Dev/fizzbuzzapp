@@ -10,6 +10,7 @@ export class AdminComponent implements OnInit {
   openform;
   users: any;
   userData: Object;
+  navigationSubscription: any;
 
   constructor(private adminService: AdminService) {}
 

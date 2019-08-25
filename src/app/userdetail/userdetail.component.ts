@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { AdminService } from "../services/admin.service";
+import { Router } from "@angular/router";
 
 import { HttpClient } from "@angular/common/http";
 
@@ -32,6 +33,7 @@ export class UserdetailComponent implements OnInit {
 
   openPass: boolean;
   constructor(
+    private router: Router,
     private dialog: MatDialog,
     private adminService: AdminService,
     private http: HttpClient
@@ -44,6 +46,8 @@ export class UserdetailComponent implements OnInit {
   adminData() {
     this.id = this.currentURL = window.location.pathname;
     this.id = this.id.substr(12);
+
+    ///// changed here
 
     this.adminService.getAdminData().subscribe(data => {
       this.userData = data;
@@ -85,11 +89,12 @@ export class UserdetailComponent implements OnInit {
     };
     this.http
 
-      .post(this.adminService.ROOT_URL, this.updatedUser, {
+      .post(this.adminService.UPDATE_USER_URL, this.updatedUser, {
         observe: "response"
       })
 
       .subscribe(response => this.updatedUser);
+    this.router.navigate(["/admin"]);
   }
 
   openDialog() {
@@ -117,5 +122,7 @@ export class UserdetailComponent implements OnInit {
         observe: "response"
       })
       .subscribe(response => this.updatedUser);
+
+    this.router.navigate(["/admin"]);
   }
 }

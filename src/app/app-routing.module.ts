@@ -15,7 +15,11 @@ const routes: Routes = [
   { path: "", component: AppComponent },
   { path: "login", component: LoginComponent },
   { path: "runapp", component: RunappComponent, canActivate: [AuthGuard] },
-  { path: "admin", component: AdminComponent, canActivate: [RoleGuard] },
+  {
+    path: "admin",
+    component: AdminComponent,
+    canActivate: [RoleGuard]
+  },
   {
     path: "userdetail/:index",
     component: UserdetailComponent,

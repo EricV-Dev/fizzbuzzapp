@@ -8,6 +8,7 @@ import { environment } from "src/environments/environment";
 export class AdminService {
   openPass = false;
   ROOT_URL = environment.adminURL;
+  UPDATE_USER_URL = environment.updateUser;
   DELETE_ROOT_URL = environment.deleteURL;
   CREATE_USER_URL = environment.createUser;
 

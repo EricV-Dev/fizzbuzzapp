@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 
 import { AdminService } from "../services/admin.service";
+import { Router } from "@angular/router";
 
 import { HttpClient } from "@angular/common/http";
 import { ToastrService } from "ngx-toastr";
@@ -12,6 +13,7 @@ import { ToastrService } from "ngx-toastr";
 })
 export class CreateUserComponent implements OnInit {
   constructor(
+    private router: Router,
     private adminService: AdminService,
     private http: HttpClient,
     private toastr: ToastrService
@@ -51,10 +53,16 @@ export class CreateUserComponent implements OnInit {
     if (this.combindedUsers.indexOf(this.userNameForm) !== -1) {
       this.toastr.warning("Username Already Taken", "Create A Unique Username");
     }
+
     if (this.userNamePassword != this.updatedPassword) {
       this.toastr.warning("Passwords Do Not Match!");
       this.ogPassword;
-    } else {
+    }
+
+    if (
+      this.combindedUsers.indexOf(this.userNameForm) == -1 &&
+      this.userNamePassword === this.updatedPassword
+    ) {
       this.http
 
         .post(this.adminService.CREATE_USER_URL, this.createdUser, {
@@ -62,6 +70,8 @@ export class CreateUserComponent implements OnInit {
         })
 
         .subscribe(response => this.createdUser);
+
+      this.router.navigate(["/admin"]);
     }
   }
 }
