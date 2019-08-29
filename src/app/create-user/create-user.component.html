@@ -20,6 +20,7 @@
             [(ngModel)]="userNamePassword"
             name="password"
             type="password"
+            onfocus="this.removeAttribute('readonly');"
             class="form-control"
             placeholder="User New Password"
             aria-label="Recipient's password"
@@ -33,6 +34,7 @@
               [(ngModel)]="updatedPassword"
               name="updatedPassword"
               type="password"
+              onfocus="this.removeAttribute('readonly');"
               placeholder="Passwords Must Match"
               aria-label="Recipient's password"
               aria-describedby="button-addon2"
@@ -56,6 +58,7 @@
       type="button"
       id="button-addon1"
       (click)="createUser()"
+      onfocus="this.removeAttribute('readonly');"
     >
       Create
     </button>

@@ -6,6 +6,7 @@ import { HttpClient } from "@angular/common/http";
 
 import { MatDialog } from "@angular/material";
 import { ModalComponent } from "../modal/modal.component";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-userdetail",
@@ -24,6 +25,7 @@ export class UserdetailComponent implements OnInit {
   updatedPassword: string;
   userNamePassword: any;
   passChanged = false;
+  combindedUsers = [];
 
   currentURL: string;
   ogUser: string;
@@ -36,18 +38,22 @@ export class UserdetailComponent implements OnInit {
     private router: Router,
     private dialog: MatDialog,
     private adminService: AdminService,
-    private http: HttpClient
+    private http: HttpClient,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit() {
     this.adminData();
+    this.adminService.getAdminData().subscribe(data => {
+      for (let value of Object.values(data)) {
+        this.combindedUsers.push(value.user);
+      }
+    });
   }
 
   adminData() {
     this.id = this.currentURL = window.location.pathname;
     this.id = this.id.substr(12);
-
-    ///// changed here
 
     this.adminService.getAdminData().subscribe(data => {
       this.userData = data;
@@ -65,6 +71,10 @@ export class UserdetailComponent implements OnInit {
   updateUser() {
     if (this.ogUser != this.userNameForm) {
       this.ogUser = this.userNameForm;
+    }
+
+    if (this.combindedUsers.indexOf(this.userNameForm) !== -1) {
+      this.toastr.warning("Username Already Taken", "Create A Unique Username");
     }
 
     if (this.userNamePassword != this.updatedPassword) {
@@ -87,14 +97,20 @@ export class UserdetailComponent implements OnInit {
       admin: this.ogAdmin,
       passChanged: this.passChanged
     };
-    this.http
 
-      .post(this.adminService.UPDATE_USER_URL, this.updatedUser, {
-        observe: "response"
-      })
+    if (
+      this.combindedUsers.indexOf(this.userNameForm) == -1 &&
+      this.userNamePassword === this.updatedPassword
+    ) {
+      this.http
 
-      .subscribe(response => this.updatedUser);
-    this.router.navigate(["/admin"]);
+        .post(this.adminService.UPDATE_USER_URL, this.updatedUser, {
+          observe: "response"
+        })
+
+        .subscribe(response => this.updatedUser);
+      this.router.navigate(["/admin"]);
+    }
   }
 
   openDialog() {
