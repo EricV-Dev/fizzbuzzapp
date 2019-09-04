@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { AdminService } from "../services/admin.service";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-admin",
@@ -10,9 +11,11 @@ export class AdminComponent implements OnInit {
   openform;
   users: any;
   userData: Object;
-  navigationSubscription: any;
 
-  constructor(private adminService: AdminService) {}
+  constructor(
+    private adminService: AdminService,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit() {
     this.adminData();

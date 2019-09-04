@@ -40,15 +40,16 @@ export class UserdetailComponent implements OnInit {
     private adminService: AdminService,
     private http: HttpClient,
     private toastr: ToastrService
-  ) {}
-
-  ngOnInit() {
-    this.adminData();
+  ) {
     this.adminService.getAdminData().subscribe(data => {
       for (let value of Object.values(data)) {
         this.combindedUsers.push(value.user);
       }
     });
+  }
+
+  ngOnInit() {
+    this.adminData();
   }
 
   adminData() {
@@ -108,8 +109,7 @@ export class UserdetailComponent implements OnInit {
           observe: "response"
         })
 
-        .subscribe(response => this.updatedUser);
-      this.router.navigate(["/admin"]);
+        .subscribe(response => this.router.navigate(["/admin"]));
     }
   }
 
@@ -137,8 +137,6 @@ export class UserdetailComponent implements OnInit {
       .post(this.adminService.DELETE_ROOT_URL, this.updatedUser, {
         observe: "response"
       })
-      .subscribe(response => this.updatedUser);
-
-    this.router.navigate(["/admin"]);
+      .subscribe(response => this.router.navigate(["/admin"]));
   }
 }

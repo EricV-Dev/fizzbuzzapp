@@ -15,6 +15,6 @@ export class AdminService {
   constructor(private http: HttpClient) {}
 
   getAdminData() {
-    return this.http.get(`${this.ROOT_URL}`);
+    return this.http.get(this.ROOT_URL);
   }
 }

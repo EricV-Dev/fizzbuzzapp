@@ -69,9 +69,7 @@ export class CreateUserComponent implements OnInit {
           observe: "response"
         })
 
-        .subscribe(response => this.createdUser);
-
-      this.router.navigate(["/admin"]);
+        .subscribe(response => this.router.navigate(["/admin"]));
     }
   }
 }
