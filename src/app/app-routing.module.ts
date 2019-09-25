@@ -7,6 +7,8 @@ import { LoginComponent } from "./login/login.component";
 import { UserdetailComponent } from "./userdetail/userdetail.component";
 import { AuthGuard } from "./services/auth-guard.service";
 import { AdminComponent } from "./admin/admin.component";
+import { SqlAdminComponent } from "./sqlData/sql-admin/sql-admin.component";
+import { SqlcreateuserComponent } from "./sqlData/sqlcreateuser/sqlcreateuser.component";
 import { RoleGuard } from "./services/role-guard.service";
 import { CreateUserComponent } from "./create-user/create-user.component";
 
@@ -28,6 +30,16 @@ const routes: Routes = [
   {
     path: "createUser",
     component: CreateUserComponent,
+    canActivate: [RoleGuard]
+  },
+  {
+    path: "sqladmin",
+    component: SqlAdminComponent,
+    canActivate: [RoleGuard]
+  },
+  {
+    path: "createUserSql",
+    component: SqlcreateuserComponent,
     canActivate: [RoleGuard]
   }
 ];

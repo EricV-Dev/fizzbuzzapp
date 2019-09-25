@@ -21,7 +21,10 @@ import { UserdetailComponent } from "./userdetail/userdetail.component";
 import { MatDialogModule } from "@angular/material";
 import { MaterialModule } from "./material.module";
 import { ModalComponent } from "./modal/modal.component";
-import { CreateUserComponent } from './create-user/create-user.component';
+import { CreateUserComponent } from "./create-user/create-user.component";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { SqlAdminComponent } from "./sqlData/sql-admin/sql-admin.component";
+import { SqlcreateuserComponent } from "./sqlData/sqlcreateuser/sqlcreateuser.component";
 
 @NgModule({
   declarations: [
@@ -33,7 +36,9 @@ import { CreateUserComponent } from './create-user/create-user.component';
     AdminComponent,
     UserdetailComponent,
     ModalComponent,
-    CreateUserComponent
+    CreateUserComponent,
+    SqlAdminComponent,
+    SqlcreateuserComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +50,8 @@ import { CreateUserComponent } from './create-user/create-user.component';
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot({ positionClass: "toast-top-center" }),
     MatDialogModule,
-    MaterialModule
+    MaterialModule,
+    NgbModule
   ],
   providers: [
     FizzBuzzResult,

@@ -5,5 +5,7 @@ export const environment = {
   adminURL: "https://still-river-42657.herokuapp.com/api/displayUser",
   deleteURL: "https://still-river-42657.herokuapp.com/api/deleteUser",
   createUser: "https://still-river-42657.herokuapp.com/api/createUser",
-  updateUser: "https://still-river-42657.herokuapp.com/api/updateUsername"
+  updateUser: "https://still-river-42657.herokuapp.com/api/updateUsername",
+  adminURL_SQL: "https://still-river-42657.herokuapp.com/api/displayUserSQL",
+  createUserSQL: "https://still-river-42657.herokuapp.com/api/createUserSQL"
 };

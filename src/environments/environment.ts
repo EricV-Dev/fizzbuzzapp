@@ -9,7 +9,9 @@ export const environment = {
   adminURL: "http://localhost:3000/api/displayUser",
   deleteURL: "http://localhost:3000/api/deleteUser",
   createUser: "http://localhost:3000/api/createUser",
-  updateUser: "http://localhost:3000/api/updateUsername"
+  updateUser: "http://localhost:3000/api/updateUsername",
+  adminURL_SQL: "http://localhost:3000/api/displayUserSQL",
+  createUserSQL: "http://localhost:3000/api/createUserSQL"
 };
 
 /*
