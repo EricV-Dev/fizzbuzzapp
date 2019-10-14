@@ -11,7 +11,9 @@ export const environment = {
   createUser: "http://localhost:3000/api/createUser",
   updateUser: "http://localhost:3000/api/updateUsername",
   adminURL_SQL: "http://localhost:3000/api/displayUserSQL",
-  createUserSQL: "http://localhost:3000/api/createUserSQL"
+  createUserSQL: "http://localhost:3000/api/createUserSQL",
+  updateUserSQL: "http://localhost:3000/api/updateUserSQL",
+  deleteUserSQL: "http://localhost:3000/api/deleteUserSQL"
 };
 
 /*

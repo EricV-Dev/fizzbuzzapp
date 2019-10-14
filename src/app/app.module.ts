@@ -25,6 +25,7 @@ import { CreateUserComponent } from "./create-user/create-user.component";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { SqlAdminComponent } from "./sqlData/sql-admin/sql-admin.component";
 import { SqlcreateuserComponent } from "./sqlData/sqlcreateuser/sqlcreateuser.component";
+import { SqlUserDetailComponent } from "./sqlData/sql-user-detail/sql-user-detail.component";
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { SqlcreateuserComponent } from "./sqlData/sqlcreateuser/sqlcreateuser.co
     ModalComponent,
     CreateUserComponent,
     SqlAdminComponent,
-    SqlcreateuserComponent
+    SqlcreateuserComponent,
+    SqlUserDetailComponent
   ],
   imports: [
     BrowserModule,

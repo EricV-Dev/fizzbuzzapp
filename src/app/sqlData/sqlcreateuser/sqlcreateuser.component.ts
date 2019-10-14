@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { AdminService } from "../../services/admin.service";
 import { Router } from "@angular/router";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { ToastrService } from "ngx-toastr";
 
 @Component({
@@ -24,7 +24,6 @@ export class SqlcreateuserComponent implements OnInit {
   updatedPassword: string;
   userNamePassword: any;
   passChanged = false;
-  combindedUsers = [];
 
   currentURL: string;
   ogUser: string;
@@ -32,42 +31,39 @@ export class SqlcreateuserComponent implements OnInit {
   ogAdmin: boolean;
   delete = false;
 
-  ngOnInit() {
-    this.adminService.getSqlAdminData().subscribe(data => {
-      for (let value of Object.values(data)) {
-        this.combindedUsers.push(value.username);
-      }
-    });
-  }
+  ngOnInit() {}
 
   createUser() {
     this.createdUser = {
-      index: this.combindedUsers.length + 1,
       user: this.userNameForm,
       password: this.updatedPassword,
       admin: this.ogAdmin
     };
 
-    if (this.combindedUsers.indexOf(this.userNameForm) !== -1) {
-      this.toastr.warning("Username Already Taken", "Create A Unique Username");
-    }
-
     if (this.userNamePassword != this.updatedPassword) {
       this.toastr.warning("Passwords Do Not Match!");
       this.ogPassword;
+      return;
     }
 
-    if (
-      this.combindedUsers.indexOf(this.userNameForm) == -1 &&
-      this.userNamePassword === this.updatedPassword
-    ) {
-      this.http
+    this.http
 
-        .post(this.adminService.CREATE_USER_URL_SQL, this.createdUser, {
-          observe: "response"
-        })
+      .post(this.adminService.CREATE_USER_URL_SQL, this.createdUser, {
+        observe: "response"
+      })
 
-        .subscribe(response => this.router.navigate(["/sqladmin"]));
-    }
+      .subscribe(
+        response => {
+          this.router.navigate(["/sqladmin"]);
+        },
+        (error: HttpErrorResponse) => {
+          if (error.status === 403) {
+            this.toastr.warning(
+              "Username Already Taken",
+              "Create A Unique Username"
+            );
+          }
+        }
+      );
   }
 }

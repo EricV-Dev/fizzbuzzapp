@@ -13,6 +13,8 @@ export class AdminService {
   DELETE_ROOT_URL = environment.deleteURL;
   CREATE_USER_URL = environment.createUser;
   CREATE_USER_URL_SQL = environment.createUserSQL;
+  UPDATE_USER_URL_SQL = environment.updateUserSQL;
+  DELETE_USER_URL_SQL = environment.deleteUserSQL;
 
   constructor(private http: HttpClient) {}
 

@@ -4,7 +4,7 @@
       *ngFor="let users of userData | keyvalue; index as i"
       class="col-1-4"
     >
-      <a routerLink="/userdetail/{{ i }}">
+      <a routerLink="/userdetailSql/{{ i }}">
         <div class="module users">
           <h4>Username: {{ users.value.username }}</h4>
           <h4>Admin: {{ users.value.admin }}</h4>

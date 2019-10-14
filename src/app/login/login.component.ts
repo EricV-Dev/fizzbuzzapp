@@ -13,6 +13,8 @@ export class LoginComponent implements OnInit {
   fizzUser;
   fizzPass;
 
+  model;
+
   user: [];
 
   constructor(
@@ -24,7 +26,11 @@ export class LoginComponent implements OnInit {
   ngOnInit() {}
 
   userLogin() {
-    let fizzUserPass = { user: this.fizzUser, password: this.fizzPass };
+    let fizzUserPass = {
+      user: this.fizzUser,
+      password: this.fizzPass,
+      database: this.model
+    };
 
     this.http
       .post(`${this.auth.LOGIN_URL}`, fizzUserPass, {
