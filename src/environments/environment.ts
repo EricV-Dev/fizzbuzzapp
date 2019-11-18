@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  fizzURL: "http://localhost:3000/api/fizzBuzz",
+  // fizzURL: "http://localhost:3000/api/fizzBuzz",
+  fizzURL: "https://localhost:44392/api/fizzbuzz",
   loginURL: "http://localhost:3000/api/login",
   adminURL: "http://localhost:3000/api/displayUser",
   deleteURL: "http://localhost:3000/api/deleteUser",

@@ -41,6 +41,7 @@ export class RunappComponent implements OnInit {
 
     this.fizzBuzzResult.getFizzBuzz().subscribe(data => {
       this.fizzBuzzResult.ROOT_URL = this.fizzBuzzResult.ROOT_URL.split("?")[0];
+
       return (this.fizzData = data);
     });
     this.fizzBuzzResult.ROOT_URL = this.fizzBuzzResult.ROOT_URL;
