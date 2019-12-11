@@ -9,6 +9,7 @@ import { environment } from "src/environments/environment";
 export class AuthService {
   constructor(private myRoute: Router) {}
   LOGIN_URL = environment.loginURL;
+  LOGIN_URL_ASP = environment.loginURLASP;
 
   sendToken(token: string) {
     localStorage.setItem("LoggedInUser", token);

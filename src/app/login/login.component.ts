@@ -32,27 +32,51 @@ export class LoginComponent implements OnInit {
       database: this.model
     };
 
-    this.http
-      .post(`${this.auth.LOGIN_URL}`, fizzUserPass, {
-        observe: "response"
-      })
+    if (this.model != "ASP") {
+      this.http
+        .post(`${this.auth.LOGIN_URL}`, fizzUserPass, {
+          observe: "response"
+        })
 
-      .subscribe(
-        response => {
-          if (response.body.hasOwnProperty("admin")) {
-            this.auth.sendAdminToken("admin token active");
+        .subscribe(
+          response => {
+            if (response.body.hasOwnProperty("admin")) {
+              this.auth.sendAdminToken("admin token active");
+            }
+
+            this.auth.sendToken("token active");
+
+            this.router.navigate(["/"]);
+          },
+
+          (error: HttpErrorResponse) => {
+            if (error.status === 401) {
+              this.fizzPass = "";
+            }
           }
+        );
+    } else
+      this.http
+        .post(`${this.auth.LOGIN_URL_ASP}`, fizzUserPass, {
+          observe: "response"
+        })
 
-          this.auth.sendToken("token active");
+        .subscribe(
+          response => {
+            if (response.body.hasOwnProperty("admin")) {
+              this.auth.sendAdminToken("admin token active");
+            }
 
-          this.router.navigate(["/"]);
-        },
+            this.auth.sendToken("token active");
 
-        (error: HttpErrorResponse) => {
-          if (error.status === 401) {
-            this.fizzPass = "";
+            this.router.navigate(["/"]);
+          },
+
+          (error: HttpErrorResponse) => {
+            if (error.status === 401) {
+              this.fizzPass = "";
+            }
           }
-        }
-      );
+        );
   }
 }

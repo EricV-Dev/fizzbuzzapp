@@ -4,17 +4,22 @@
 
 export const environment = {
   production: false,
-  // fizzURL: "http://localhost:3000/api/fizzBuzz",
-  fizzURL: "https://localhost:44392/api/fizzbuzz",
+  // fizzURL: "http://localhost:3000/api/fizzBuzz", node
+  fizzURL: "https://localhost:44329/api/fizzbuzz", // asp.net
   loginURL: "http://localhost:3000/api/login",
+  loginURLASP: "https://localhost:44329/api/login", //asp.net
   adminURL: "http://localhost:3000/api/displayUser",
   deleteURL: "http://localhost:3000/api/deleteUser",
   createUser: "http://localhost:3000/api/createUser",
   updateUser: "http://localhost:3000/api/updateUsername",
-  adminURL_SQL: "http://localhost:3000/api/displayUserSQL",
-  createUserSQL: "http://localhost:3000/api/createUserSQL",
-  updateUserSQL: "http://localhost:3000/api/updateUserSQL",
-  deleteUserSQL: "http://localhost:3000/api/deleteUserSQL"
+  // adminURL_SQL: "http://localhost:3000/api/displayUserSQL", //node
+  adminURL_SQL: "https://localhost:44329/api/displayuser", // asp.net
+  // createUserSQL: "http://localhost:3000/api/createUserSQL", // node
+  createUserSQL: "https://localhost:44329/api/createuser", //asp.net
+  // updateUserSQL: "http://localhost:3000/api/updateUserSQL", //node
+  updateUserSQL: "https://localhost:44329/api/updateUser", //asp.net
+  //deleteUserSQL: "http://localhost:3000/api/deleteUserSQL" //node
+  deleteUserSQL: "https://localhost:44329/api/deleteUser" //asp.net
 };
 
 /*
