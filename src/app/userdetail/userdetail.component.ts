@@ -47,6 +47,7 @@ export class UserdetailComponent implements OnInit {
   }
 
   adminData() {
+    console.log(window.location.pathname);
     this.id = this.currentURL = window.location.pathname;
     this.id = this.id.substr(12);
 

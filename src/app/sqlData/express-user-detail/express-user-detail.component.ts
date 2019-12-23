@@ -9,11 +9,11 @@ import { ModalComponent } from "../../modal/modal.component";
 import { ToastrService } from "ngx-toastr";
 
 @Component({
-  selector: "app-sql-user-detail",
-  templateUrl: "./sql-user-detail.component.html",
-  styleUrls: ["./sql-user-detail.component.css"]
+  selector: "app-expressuserdetail",
+  templateUrl: "./express-user-detail.component.html",
+  styleUrls: ["./express-user-detail.component.css"]
 })
-export class SqlUserDetailComponent implements OnInit {
+export class ExpressUserDetailComponent implements OnInit {
   responseUser;
 
   users;
@@ -50,9 +50,9 @@ export class SqlUserDetailComponent implements OnInit {
 
   adminDataSql() {
     this.id = this.currentURL = window.location.pathname;
-    this.id = this.id.substr(15);
+    this.id = this.id.substr(19);
 
-    this.adminService.getSqlAdminData().subscribe(data => {
+    this.adminService.getSqlAdminDataExpress().subscribe(data => {
       this.userData = data;
       this.userData = this.userData[this.id];
 
@@ -60,8 +60,8 @@ export class SqlUserDetailComponent implements OnInit {
       this.ogUserSend = this.ogUser;
 
       this.userNameForm = this.ogUser;
-      this.ogPassword = this.userData.password;
-      this.ogAdmin = this.userData.admin;
+      this.ogPassword = this.userData.Password;
+      this.ogAdmin = this.userData.IsAdmin;
 
       return this.userData;
     });
@@ -101,13 +101,13 @@ export class SqlUserDetailComponent implements OnInit {
 
     this.http
 
-      .post(this.adminService.UPDATE_USER_URL_SQL, this.updatedUser, {
+      .post(this.adminService.UPDATE_USER_URL_EXPRESS, this.updatedUser, {
         observe: "response"
       })
 
       .subscribe(
         response => {
-          this.router.navigate(["/sqladmin"]);
+          this.router.navigate(["/expressadmin"]);
         },
         (error: HttpErrorResponse) => {
           if (error.status === 403) {
@@ -141,9 +141,9 @@ export class SqlUserDetailComponent implements OnInit {
       delete: this.delete
     };
     this.http
-      .post(this.adminService.DELETE_USER_URL_SQL, this.updatedUser, {
+      .post(this.adminService.DELETE_USER_URL_EXPRESS, this.updatedUser, {
         observe: "response"
       })
-      .subscribe(response => this.router.navigate(["/sqladmin"]));
+      .subscribe(response => this.router.navigate(["/expressadmin"]));
   }
 }

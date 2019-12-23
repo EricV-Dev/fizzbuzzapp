@@ -4,7 +4,7 @@
       *ngFor="let users of userData | keyvalue; index as i"
       class="col-1-4"
     >
-      <a routerLink="/userdetailSql/{{ i }}">
+      <a routerLink="/userdetailExpress/{{ i }}">
         <div class="module users">
           <h4>Username: {{ users.value.UserName }}</h4>
           <h4>Admin: {{ users.value.IsAdmin }}</h4>
@@ -12,7 +12,7 @@
       </a>
     </table>
     <table class="col-1-4">
-      <a id="addUser" routerLink="/createUserSql">
+      <a id="addUser" routerLink="/createUserExpress">
         <div class="module users">
           <h4>Add User +</h4>
         </div></a

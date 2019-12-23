@@ -12,13 +12,13 @@ export const environment = {
   deleteURL: "http://localhost:3000/api/deleteUser",
   createUser: "http://localhost:3000/api/createUser",
   updateUser: "http://localhost:3000/api/updateUsername",
-  // adminURL_SQL: "http://localhost:3000/api/displayUserSQL", //node
+  adminURL_SQL_Express: "http://localhost:3000/api/displayUserSQL", //node
   adminURL_SQL: "https://localhost:44329/api/displayuser", // asp.net
-  // createUserSQL: "http://localhost:3000/api/createUserSQL", // node
+  createUserExpress: "http://localhost:3000/api/createUserSQL", // node
   createUserSQL: "https://localhost:44329/api/createuser", //asp.net
-  // updateUserSQL: "http://localhost:3000/api/updateUserSQL", //node
+  updateUserExpress: "http://localhost:3000/api/updateUserSQL", //node
   updateUserSQL: "https://localhost:44329/api/updateUser", //asp.net
-  //deleteUserSQL: "http://localhost:3000/api/deleteUserSQL" //node
+  deleteUserExpress: "http://localhost:3000/api/deleteUserSQL", //node
   deleteUserSQL: "https://localhost:44329/api/deleteUser" //asp.net
 };
 
