@@ -9,10 +9,10 @@ export const environment = {
   deleteURL: baseUrl + "/api/deleteUser",
   createUser: baseUrl + "/api/createUser",
   updateUser: baseUrl + "/api/updateUsername",
-  adminURL_SQL: baseUrlAsp + "/api/displayUserSQL", // asp.net
-  createUserSQL: baseUrlAsp + "/api/createUserSQL", // asp.net
-  updateUserSQL: baseUrlAsp + "/api/updateUserSQL", // asp.net
-  deleteUserSQL: baseUrlAsp + "/api/deleteUserSQL", // asp.net
+  adminURL_SQL: baseUrlAsp + "/api/displayUser", // asp.net
+  createUserSQL: baseUrlAsp + "/api/createUser", // asp.net
+  updateUserSQL: baseUrlAsp + "/api/updateUser", // asp.net
+  deleteUserSQL: baseUrlAsp + "/api/deleteUser", // asp.net
 
   loginURLASP: baseUrlAsp + "/api/login", //asp.net
 
