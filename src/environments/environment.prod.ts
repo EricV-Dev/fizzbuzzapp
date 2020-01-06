@@ -1,5 +1,5 @@
 let baseUrl = "https://still-river-42657.herokuapp.com";
-let baseUrlAsp = "https://fizzbuzzdotnet20200105031554.azurewebsites.net";
+let baseUrlAsp = "https://fizzbuzzdotnet.azurewebsites.net";
 
 export const environment = {
   production: true,
